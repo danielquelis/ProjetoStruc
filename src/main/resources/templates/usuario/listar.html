@@ -36,7 +36,7 @@
 						<tr th:each="user : ${usuarios}">
 							<td th:text="${user.id}"></td>
 							<td th:text="${user.nome + ' ' + user.sobrenome}"></td>
-							<td><span th:each="perfil : ${user.perfis}" th:text="${'' + user.perfil + '/'}"></span></td>
+							<td><span th:each="perfil : ${user.perfis}" th:text="${'' + perfil.nome + '/'}"></span></td>
 							<td>
 								<div class="btn-group float-right">
 									<a class="btn btn-sm btn-primary" th:href="@{/alterar/{id}(id=${user.id})}">Editar</a> <a class="delete btn btn-sm btn-danger"

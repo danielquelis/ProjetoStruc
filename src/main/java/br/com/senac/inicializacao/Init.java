@@ -1,6 +1,7 @@
 package br.com.senac.inicializacao;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,23 +26,23 @@ public class Init implements ApplicationListener<ContextRefreshedEvent>{
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		
-		Usuario padrao = new Usuario();
-		padrao.setNome("admin");
-		padrao.setSobrenome("");
-		padrao.setEmail("admin@senac.com");
-		padrao.setSenha("1234");
-		
-		List<Usuario> users_admin = new ArrayList<>();
-		users_admin.add(padrao);
+		Usuario usuario = new Usuario();
+		usuario.setNome("admin");
+		usuario.setSobrenome("");
+		usuario.setEmail("admin@senac.com");
+		usuario.setSenha("1234");
 		
 		Perfil administrador = new Perfil();
 		administrador.setNome("Administrador");
-		administrador.setUsuarios(users_admin);
 		
-		usuarioRepositorio.save(padrao);
-		perfilRepositorio.save(administrador);
+		Perfil tecnico = new Perfil();
+		tecnico.setNome("Tecnico");
+				
+		usuario.setPerfis(Arrays.asList(administrador, tecnico));
 		
-		System.out.println("TVN");
+		perfilRepositorio.saveAll(Arrays.asList(administrador, tecnico));
+		usuarioRepositorio.save(usuario);
+		
 	}
 
 }
