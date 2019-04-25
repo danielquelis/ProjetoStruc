@@ -19,14 +19,14 @@ public class LoginControle {
 	public String login(Usuario usuario) {
 		boolean decision = loginService.login(usuario);
 		if (decision) {
-			return "redirect:/menu";
+			return "menu/menu";
 		}
-		return "erro/paginaErro.html";
+		return "erro/erro.html";
 	}
 	
 	@GetMapping("/login")
 	public ModelAndView validar() {
-		ModelAndView mv = new ModelAndView("menu/paginaLogin");
+		ModelAndView mv = new ModelAndView("menu/login");
 		mv.addObject("usuario", new Usuario());
 		return mv;
 	}	
