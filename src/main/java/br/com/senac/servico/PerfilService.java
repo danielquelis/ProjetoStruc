@@ -21,9 +21,14 @@ public class PerfilService {
 				"Perfil não encontrado! Id: " + id + ", Tipo: " + Perfil.class.getName()));
 	}
 
-	public Perfil inserir(Perfil objPerfil) {
-		objPerfil.setId(null);
-		return repoPerfil.save(objPerfil);
+	public Perfil inserir(List<Perfil> perfis) {
+		for (int i = 0; i<perfis.size();i++) {
+			Perfil perfil = new Perfil();
+			perfil.setId(null);
+			perfil.setNome(perfis.get(i).getNome());
+			return repoPerfil.save(perfil);
+		}
+		return null;
 	}
 	
 	public Perfil alterar(Perfil objPerfil) {

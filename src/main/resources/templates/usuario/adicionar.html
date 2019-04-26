@@ -18,33 +18,35 @@
 		<div class="card-header">
 			<strong>Cadastro de Usuários</strong>
 		</div>
-		<div class="card-body">
-			<form class="form-horizontal" th:object="${usuario}" th:action="@{/salvar}" method="POST" style="margin: 10px">
-				<div class="form-group">
-					<fieldset>
-						<div class="form-group">
-							<input type="text" class="form-control input-sm" th:field="*{nome}" autofocus="autofocus" placeholder="Informe o nome"
-							 maxlength="50" name="" />
-						</div>
-	
-						<div class="form-group">
-							<input type="text" class="form-control input-sm" th:field="*{sobrenome}" autofocus="autofocus" placeholder="Informe o sobrenome"
-							 maxlength="50" name="" />
-						</div>
-						
-						<ul>
-							<li th:each="perfil : ${perfis}">
-								<input type="checkbox" th:field="*{perfil}" name="perfil" th:value="${perfil.id}" />
-								<label th:text="${perfil.nome}" />
-							</li>
-						</ul>
-					</fieldset>
-				</div>
-				<div align="center">
-					<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
-					<a th:href="@{/listar}" class="btn btn-sm btn-default">Cancelar</a>
-				</div>
-			</form>
+		<div class="container">
+			<div class="card-body">
+				<form class="form-horizontal" th:object="${usuario}" th:action="@{/Usuario/salvar}" method="POST" style="margin: 10px">
+					<div class="form-group">
+						<fieldset>
+							<div class="form-group">
+								<input type="text" class="form-control input-sm" th:field="*{nome}" autofocus="autofocus" placeholder="Informe o nome"
+								 maxlength="50" name="" />
+							</div>
+		
+							<div class="form-group">
+								<input type="text" class="form-control input-sm" th:field="*{sobrenome}" autofocus="autofocus" placeholder="Informe o sobrenome"
+								 maxlength="50" name="" />
+							</div>
+							
+							<ul>
+								<li th:each="perfil : ${perfis}">
+									<input type="checkbox" name="perfil" th:value="${perfil.id}" />
+									<label th:text="${perfil.nome}" />
+								</li>
+							</ul>
+						</fieldset>
+					</div>
+					<div align="center">
+						<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+						<a th:href="@{/Usuario/listar}" class="btn btn-sm btn-default">Cancelar</a>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 
