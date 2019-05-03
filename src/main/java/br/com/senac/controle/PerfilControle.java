@@ -34,7 +34,7 @@ public class PerfilControle {
 	
 	@PostMapping("/salvar")
 	public ModelAndView inserir(Perfil perfil) {
-		perfilService.inserir(perfil);
+		perfilService.inserir2(perfil);
 		return listaPerfis();
 	}
 	
@@ -45,7 +45,7 @@ public class PerfilControle {
 		return listaPerfis();
 	}
 	
-	@GetMapping("/altera/{id}")
+	@GetMapping("/alterar/{id}")
 	public ModelAndView alterar(@PathVariable("id")Integer id) {
 		ModelAndView mv = new ModelAndView("perfil/alterar");
 		mv.addObject("perfil", perfilService.buscar(id));

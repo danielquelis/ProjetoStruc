@@ -26,7 +26,7 @@ public class Init implements ApplicationListener<ContextRefreshedEvent>{
 		
 		Usuario usuario = new Usuario();
 		usuario.setNome("admin");
-		usuario.setSobrenome("");
+		//usuario.setSobrenome("");
 		usuario.setEmail("admin@senac.com");
 		usuario.setSenha("1234");
 		

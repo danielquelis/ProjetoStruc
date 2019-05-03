@@ -20,25 +20,40 @@
 		</div>
 		<div class="container">
 			<div class="card-body">
-				<form class="form-horizontal" th:object="${usuario}" th:action="@{/Usuario/salvar}" method="POST" style="margin: 10px">
+				<form class="form-horizontal" th:object="${usuario}" th:action="@{/Usuario/salvar}" method="POST" modelAttribute="perfis" style="margin: 10px">
 					<div class="form-group">
 						<fieldset>
 							<div class="form-group">
+								<label>Nome</label>
 								<input type="text" class="form-control input-sm" th:field="*{nome}" autofocus="autofocus" placeholder="Informe o nome"
 								 maxlength="50" name="" />
 							</div>
-		
+							<!-- 
 							<div class="form-group">
 								<input type="text" class="form-control input-sm" th:field="*{sobrenome}" autofocus="autofocus" placeholder="Informe o sobrenome"
 								 maxlength="50" name="" />
 							</div>
+							 -->
 							
-							<ul>
+							<div class="form-group">
+								<label>Email</label>
+								<input type="text" class="form-control input-sm" th:field="*{email}" autofocus="autofocus" placeholder="Informe o email"
+								 maxlength="50" name="" />
+							</div>
+							
+							<div class="form-group">
+								<label>Senha</label>
+								<input type="text" class="form-control input-sm" th:field="*{senha}" autofocus="autofocus" placeholder="Informe a senha"
+								 maxlength="10" name="" />
+							</div>
+							
+							<ul style="list-style: none;">
 								<li th:each="perfil : ${perfis}">
-									<input type="checkbox" name="perfil" th:value="${perfil.id}" />
-									<label th:text="${perfil.nome}" />
+									<input type="checkbox" th:field="*{perfis}" th:value="${id}" th:checked="${true}"/>
+									<label th:text="${perfil.nome}"></label>
 								</li>
 							</ul>
+							
 						</fieldset>
 					</div>
 					<div align="center">

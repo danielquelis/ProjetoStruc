@@ -1,10 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport"  content="width=device-width"/>
+	<title>Alterar Usuário</title>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 
+<div class="container">
+	<div class="panel-heading" align="center">
+		<strong>Alterar Usuário</strong>
+	</div>
+	<div class="panel-body">
+		<form class="form-horizontal" th:object="${usuario}" th:action="@{/Usuario/alterar}" method="POST" style="margin: 10px">
+			<div class="form-group">
+				<fieldset>
+					<div class="form-group row">
+						<input type="hidden" class="form-control input-sm" id="id" th:field="*{id}"/>
+					</div>
+						
+					<div class="form-group-row">
+						<label>Nome</label>
+						<input class="form-control input-sm" id="nome" th:field="*{nome}" autofocus="autofocus" placeholder="Informe o nome" maxlength="20"/>
+					</div>
+					
+					<!-- 
+					<div class="form-group-row">
+						<label>Sobrenome</label>
+						<input class="form-control input-sm" id="sobrenome" th:field="*{sobrenome}" autofocus="autofocus" placeholder="Informe o sobrenome" maxlength="20"/>
+					</div>
+					 -->
+					
+					<div class="form-group-row">
+						<label>Email</label>
+						<input class="form-control input-sm" id="email" th:field="*{email}" autofocus="autofocus" placeholder="Informe o email" maxlength="50"/>
+					</div>
+					
+					<div class="form-group-row">
+						<label>Senha</label>
+						<input class="form-control input-sm" id="senha" th:field="*{senha}" autofocus="autofocus" placeholder="Informe a senha" maxlength="10"/>
+					</div>
+					
+					<label>Perfil</label>
+					<ul style="list-style: none;">
+						<li th:each="perfil : ${perfis}">
+							<input type="checkbox" th:field="*{perfis}" th:value="${id}" th:checked="${true}"/>
+							<label th:text="${perfil.nome}"></label>
+						</li>
+					</ul>
+				</fieldset>
+			</div>
+			<div align="center">
+				<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+				<a th:href="@{/Usuario/listar}" class="btn btn-sm btn-default">Cancelar</a>
+			</div>
+		</form>
+	</div>
+</div>
 </body>
 </html>

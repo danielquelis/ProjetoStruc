@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.senac.dominio.Perfil;
+import br.com.senac.dominio.Usuario;
 import br.com.senac.repositorio.PerfilRepositorio;
 
 @Service
@@ -22,6 +23,7 @@ public class PerfilService {
 	}
 
 	public Perfil inserir(List<Perfil> perfis) {
+		System.out.println("-------------  " + perfis.size());
 		for (int i = 0; i<perfis.size();i++) {
 			Perfil perfil = new Perfil();
 			perfil.setId(null);
@@ -31,9 +33,15 @@ public class PerfilService {
 		return null;
 	}
 	
+	public Perfil inserir2(Perfil perfil) {
+		perfil.setId(null);
+		return repoPerfil.save(perfil);
+	}
+	
 	public Perfil alterar(Perfil objPerfil) {
 		Perfil objPerfilEncontrado = buscar(objPerfil.getId());
 		objPerfilEncontrado.setNome(objPerfil.getNome());
+		objPerfilEncontrado.setDescricao(objPerfil.getDescricao());
 		return repoPerfil.save(objPerfilEncontrado);
 	}
 	

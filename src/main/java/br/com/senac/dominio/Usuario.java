@@ -23,7 +23,7 @@ public class Usuario implements Serializable{
 	
 	private String nome;
 	
-	private String sobrenome;
+	//private String sobrenome;
 	
 	private String email;
 	
@@ -41,7 +41,7 @@ public class Usuario implements Serializable{
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.sobrenome = sobrenome;
+		//this.sobrenome = sobrenome;
 		this.email = email;
 		this.senha = senha;
 	}
@@ -70,13 +70,13 @@ public class Usuario implements Serializable{
 		this.perfis = perfis;
 	}
 
-	public String getSobrenome() {
-		return sobrenome;
-	}
-
-	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
-	}
+//	public String getSobrenome() {
+//		return sobrenome;
+//	}
+//
+//	public void setSobrenome(String sobrenome) {
+//		this.sobrenome = sobrenome;
+//	}
 
 	public String getEmail() {
 		return email;

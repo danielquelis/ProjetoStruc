@@ -1,10 +1,15 @@
 package br.com.senac.controle;
 
+
+
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,9 +47,11 @@ public class UsuarioControle {
 	}
 	
 	@PostMapping("/salvar")
-	public ModelAndView inserir(Usuario usuario) {
+	public ModelAndView inserir(@ModelAttribute Usuario usuario, Model model) {
+		List<Perfil> perfis = new ArrayList<>();
+		model.addAttribute("perfis", perfis);
+		usuario.setPerfis(perfis);
 		usuarioService.inserir(usuario);
-		perfilService.inserir(usuario.getPerfis());
 		return listaUsuarios();
 	}
 	

@@ -28,7 +28,7 @@ public class UsuarioService {
 	public Usuario alterar(Usuario objUsuario) throws ObjectNotFoundException{
 		Usuario objUsuarioEncontrado = buscar(objUsuario.getId());
 		objUsuarioEncontrado.setNome(objUsuario.getNome());
-		objUsuarioEncontrado.setSobrenome(objUsuario.getSobrenome());
+		//objUsuarioEncontrado.setSobrenome(objUsuario.getSobrenome());
 		objUsuarioEncontrado.setEmail(objUsuario.getEmail());
 		objUsuarioEncontrado.setSenha(objUsuario.getSenha());
 		objUsuarioEncontrado.setPerfis(objUsuario.getPerfis());
