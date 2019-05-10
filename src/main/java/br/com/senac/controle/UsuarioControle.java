@@ -47,9 +47,7 @@ public class UsuarioControle {
 	}
 	
 	@PostMapping("/salvar")
-	public ModelAndView inserir(@ModelAttribute("perfis") Model model, Usuario usuario ) {
-		List<Perfil> perfis = new ArrayList<>();
-		usuario.setPerfis(perfis);
+	public ModelAndView inserir(Usuario usuario ) {
 		usuarioService.inserir(usuario);
 		return listaUsuarios();
 	}

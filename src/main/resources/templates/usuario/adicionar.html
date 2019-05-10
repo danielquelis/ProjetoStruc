@@ -49,7 +49,7 @@
 							
 							<ul style="list-style: none;">
 								<li th:each="perfil : ${perfis}">
-									<input type="checkbox" th:field="*{perfis}" th:value="${id}" th:checked="${true}"/>
+									<input type="checkbox" th:field="*{perfis}" th:value="${perfil.id}" th:checked="${true}"/>
 									<label th:text="${perfil.nome}"></label>
 								</li>
 							</ul>
