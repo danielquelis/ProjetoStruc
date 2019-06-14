@@ -20,4 +20,12 @@ public class LoginService {
 		return true;
 	}
 	
+	public boolean login-furado(Usuario usuario) {
+		Usuario usuarioLogado = repoUsuario.findFurado(usuario.getEmail(), usuario.getSenha());
+		if (usuarioLogado == null) {
+			return false;
+		}
+		return true;
+	}
+	
 }
