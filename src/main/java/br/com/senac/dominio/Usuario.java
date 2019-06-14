@@ -94,5 +94,10 @@ public class Usuario implements Serializable{
 		this.senha = senha;
 	}
 	
+	public void findFurado(String login, String senha){
+		String sql = "SELECT * FROM usuario WHERE login = " + login;
+		Usuario usuario = getSimpleJdbcTemplate().queryForObject(sql);
+		//return customer;	
+	}
 	
 }
