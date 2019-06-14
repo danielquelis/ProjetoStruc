@@ -24,6 +24,15 @@ public class LoginControle {
 		return "erro/erro.html";
 	}
 	
+	@PostMapping("/validar-furado")
+	public String login(Usuario usuario) {
+		boolean decision = loginService.login-furado(usuario);
+		if (decision) {
+			return "menu/menu";
+		}
+		return "erro/erro.html";
+	}
+	
 	@GetMapping("/login")
 	public ModelAndView validar() {
 		ModelAndView mv = new ModelAndView("menu/login");
